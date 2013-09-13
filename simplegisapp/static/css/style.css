@@ -1,0 +1,23 @@
+#map{
+	float: left;
+	width: 1200px; 
+	height: 700px;
+}
+
+#text{
+	float: left;
+}
+
+#list{
+	height: 300px;
+}
+
+#list li:hover{
+	color: #0000FF;
+	font-weight: 700;
+	cursor: pointer;
+}
+ 
+#list li{
+	list-style-type: none;
+}

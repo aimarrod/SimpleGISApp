@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Simple GIS App</title>
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="stylesheet" href="/static/css/style.css"/>
+		<script src="/static/js/jquery.min.js"></script>
+		<!-- Leaflet CSS and JS files -->
+		<link rel="stylesheet" href="/static/leaflet/leaflet.css"/>
+		<link rel="stylesheet" href="/static/leaflet/leaflet.ie.css"/>
+		<script src="/static/leaflet/leaflet.js"></script>
+		<script src="/static/leaflet/leaflet-src.js"></script>
+		
+	</head>		
+	<body>
+		<div id="text">
+			<form id="form" method="post" enctype="multipart/form-data">{% csrf_token %}
+				<legend><h2>Upload GPX file</h2></legend>
+				{{ form.as_p }}
+				<input type="submit" value="Submit" />
+			</form>
+			<div id="list">
+				<h2>Routes</h2>
+				<ul>
+				{% for route in routes %}
+					<li id={{ route.pk }} class="route-link">{{ route.name }}</li>
+				{% endfor %}
+				</ul>
+			</div>
+			<div id="data"></div>
+		</div>
+		<div id="map"></div>
+		<script src="/static/js/map.js"></script>
+	</body>
+</html>
